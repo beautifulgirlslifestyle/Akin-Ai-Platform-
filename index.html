@@ -1,0 +1,121 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Akin Ai Learning Platform</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: white;
+    }
+    header {
+      padding: 20px;
+      background-color: #1b1f3b;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2.5em;
+      margin: 0;
+    }
+    .container {
+      padding: 20px;
+    }
+    .section {
+      margin-bottom: 40px;
+    }
+    .section h2 {
+      border-bottom: 2px solid #00ffc6;
+      padding-bottom: 10px;
+    }
+    .books, .tests {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background-color: #2c3e50;
+      padding: 15px;
+      border-radius: 15px;
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card a {
+      color: #00ffc6;
+      text-decoration: none;
+    }
+    .btn {
+      background-color: #00ffc6;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .certificate {
+      background: #fff;
+      color: #000;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Akin Ai Learning Platform</h1>
+    <p>Explore Computer Science, AI & Technology — Learn & Get Certified</p>
+  </header>  <div class="container">
+    <div class="section">
+      <h2>📘 Featured Books & Notes (50+)</h2>
+      <div class="books">
+        <div class="card"><a href="#" download>Introduction to AI.pdf</a></div>
+        <div class="card"><a href="#" download>Data Structures & Algorithms.pdf</a></div>
+        <div class="card"><a href="#" download>Machine Learning Basics.pdf</a></div>
+        <div class="card"><a href="#" download>Computer Architecture.pdf</a></div>
+        <!-- Add more book cards up to 50 -->
+      </div>
+    </div><div class="section">
+  <h2>🧠 Test Your Knowledge</h2>
+  <div class="tests">
+    <div class="card">
+      <p>Test 1: AI Basics</p>
+      <button class="btn" onclick="takeTest('ai')">Start Test</button>
+    </div>
+    <div class="card">
+      <p>Test 2: Programming Logic</p>
+      <button class="btn" onclick="takeTest('prog')">Start Test</button>
+    </div>
+    <!-- Add more tests as needed -->
+  </div>
+</div>
+
+<div class="section" id="certificateSection" style="display:none;">
+  <h2>🎓 Your Certificate</h2>
+  <div class="certificate">
+    <p>This certifies that <strong><span id="username">[Your Name]</span></strong> has successfully completed the Akin Ai assessment with a score above 80%.</p>
+    <p>Date: <span id="date"></span></p>
+    <p>Certificate ID: <span id="certID"></span></p>
+  </div>
+</div>
+
+  </div>  <script>
+    function takeTest(type) {
+      const score = prompt("Take the test. Enter your score (0 - 100):");
+      if (parseInt(score) >= 80) {
+        document.getElementById("certificateSection").style.display = "block";
+        document.getElementById("username").innerText = prompt("Enter your full name for the certificate:");
+        document.getElementById("date").innerText = new Date().toLocaleDateString();
+        document.getElementById("certID").innerText = 'AKIN-' + Math.floor(Math.random() * 999999);
+        alert("Congratulations! You earned a certificate.");
+      } else {
+        alert("You need at least 80 to get the certificate. Keep studying!");
+      }
+    }
+  </script></body>
+</html>
